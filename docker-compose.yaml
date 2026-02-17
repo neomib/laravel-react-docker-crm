@@ -10,8 +10,6 @@ services:
       DB_DATABASE: laravel
       DB_USERNAME: laravel
       DB_PASSWORD: laravel
-    # ports:
-    #   - "8000:8000"
     volumes:
       - ./app-backend:/var/dir
     depends_on:
@@ -21,22 +19,14 @@ services:
     build:
       context: ./app-frontend
       dockerfile: Dockerfile
-    # ports:
-    #   - "3000:3000"
     volumes:
       - ./app-frontend:/app
-      - /app/node_modules
     depends_on:
       - laravel
 
   mysql:
     image: mysql:5.7
     restart: always
-    # environment:
-    #   MYSQL_DATABASE: laravel_database
-    #   MYSQL_USER: root
-    #   MYSQL_PASSWORD: example
-    #   MYSQL_ROOT_PASSWORD: example
 
     environment:
         MYSQL_DATABASE: laravel

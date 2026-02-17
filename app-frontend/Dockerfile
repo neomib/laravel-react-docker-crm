@@ -5,12 +5,9 @@ FROM node:lts
 WORKDIR /app
 
 # Copy package.json and package-lock.json if using npm
-# COPY package*.json ./
+COPY package*.json ./
 
-# Install dependencies
 COPY . .
-RUN npm install
-
 # Build your React application
 # RUN npm run build
 
@@ -18,4 +15,4 @@ RUN npm install
 EXPOSE 5173
 
 # Serve the React application 
-CMD npm run dev
+CMD [ "sh", "-c", "npm install && npm run dev" ]
