@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  laravel:
+    build:
+      context: ./app-backend
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: laravel
+      DB_USERNAME: laravel
+      DB_PASSWORD: laravel
+    # ports:
+    #   - "8000:8000"
+    volumes:
+      - ./app-backend:/var/dir
+    depends_on:
+      - mysql
+
+  react:
+    build:
+      context: ./app-frontend
+      dockerfile: Dockerfile
+    # ports:
+    #   - "3000:3000"
+    volumes:
+      - ./app-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - laravel
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    # environment:
+    #   MYSQL_DATABASE: laravel_database
+    #   MYSQL_USER: root
+    #   MYSQL_PASSWORD: example
+    #   MYSQL_ROOT_PASSWORD: example
+
+    environment:
+        MYSQL_DATABASE: laravel
+        MYSQL_ROOT_PASSWORD: laravel
+        MYSQL_PASSWORD: laravel
+        MYSQL_USER: laravel
+    ports:
+      - "3306:3306"
+
+  nginx:
+    image: nginx:stable-alpine3.23-perl
+    depends_on:
+      - laravel
+      - react
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - '8080:80'
+
