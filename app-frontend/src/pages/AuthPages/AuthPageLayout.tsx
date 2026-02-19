@@ -1,6 +1,6 @@
 import React from "react";
-import GridShape from "../../components/common/GridShape";
 import { Link } from "react-router";
+import GridShape from "../../components/common/GridShape";
 import ThemeTogglerTwo from "../../components/common/ThemeTogglerTwo";
 
 export default function AuthLayout({
@@ -18,15 +18,10 @@ export default function AuthLayout({
             <GridShape />
             <div className="flex flex-col items-center max-w-xs">
               <Link to="/" className="block mb-4">
-                <img
-                  width={231}
-                  height={48}
-                  src="/images/logo/auth-logo.svg"
-                  alt="Logo"
-                />
+                <h1 className="text-title-lg text-white">CRM Manager</h1>
               </Link>
               <p className="text-center text-gray-400 dark:text-white/60">
-                Free and Open-Source Tailwind CSS Admin Dashboard Template
+                Out of the box CRM manager platform
               </p>
             </div>
           </div>
