@@ -36,7 +36,7 @@ class ContactController extends Controller
             'email' => 'required|string|email',
             'name' => 'required|min:2',
             'phone' => 'required|min:7',
-            'company' => 'nullable'
+            'company' => 'required|min:2'
         ]);
         $data['agent_id'] = $request->user()->id;
 

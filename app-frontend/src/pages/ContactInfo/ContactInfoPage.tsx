@@ -49,7 +49,7 @@ export default function ContactInfoPage() {
           <div className=" order-2 lg:order-1 col-span-12 lg:col-span-5">
             <ContactInteractions interactions={interactions} contact={contact} onAdd={onAddActivity} />
           </div>
-          <div className="order-1 lg:order-2 col-span-12 lg:col-span-3  bg-gray-50 dark:bg-gray-900">
+          <div className="order-1 lg:order-2 rounded-2xl col-span-12 lg:col-span-3  bg-gray-50 dark:bg-gray-900">
             <ContactInfoCard contact={contact} onEdit={onEditContact} onDelete={onDeleteContact} />
           </div>
         </div>}

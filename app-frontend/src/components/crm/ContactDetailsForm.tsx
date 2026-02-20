@@ -21,7 +21,7 @@ export default function ContactDetailsForm(props: ContactDetailsFormProps) {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSave = () => {
-        if (!name || !email || !phone) {
+        if (!name || !email || !phone || !company) {
             setErrorMessage("Please fill in all required fields.");
             return;
         }
@@ -121,7 +121,7 @@ export default function ContactDetailsForm(props: ContactDetailsFormProps) {
                         </div>
 
                         <div className="col-span-2 lg:col-span-1">
-                            <Label>Company</Label>
+                            <Label>Company<span className="text-error-500">*</span></Label>
                             <Input type="text"
                                 value={company}
                                 onChange={e => { setCompany(e.target.value) }} />

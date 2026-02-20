@@ -1,3 +1,4 @@
+import orderby from "lodash.orderby";
 import moment from "moment";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -19,8 +20,13 @@ export default function ContactInteractions(props: ContactInteractionsProps) {
     const { interactions, contact, onAdd } = props;
     const [interactionType, setInteractionType] = useState(InteractionType.Email);
     const [note, setNote] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const addActivity = () => {
+        if (!note) {
+            setErrorMessage("Please fill in all required fields.");
+            return;
+        }
         toast.promise(
             createInteraction({
                 type: interactionType,
@@ -36,6 +42,8 @@ export default function ContactInteractions(props: ContactInteractionsProps) {
                 }
             },
         ).then((res) => {
+            setInteractionType(InteractionType.Email);
+            setNote("");
             onAdd(res as ContactInteraction);
         })
     }
@@ -50,24 +58,25 @@ export default function ContactInteractions(props: ContactInteractionsProps) {
                     }))}
                 onChange={(value => setInteractionType(value as any))}
                 className="dark:bg-dark-900" />
-            <Label className="mt-4">Note</Label>
+            <Label className="mt-4">Note<span className="text-error-500">*</span></Label>
             <TextArea placeholder="Enter a note"
                 value={note}
                 onChange={(value) => setNote(value)}
                 rows={3}
             />
+            {errorMessage && <p className="text-error-500">{errorMessage}</p>}
             <div className="flex lg:justify-end">
                 <Button className="mt-2 width lg:width-initial" onClick={addActivity}>Add Activity</Button>
             </div>
         </div>
-        {interactions.map((interaction, index, arr) => <div>
+        {orderby(interactions, 'updated_at', 'desc').map((interaction, index, arr) => <div>
             <div className="flex justify-between">
-                <Label className="text-sm text-gray-400">Activity: {interaction.type}</Label>
-                <Label className="text-sm text-gray-400">
+                <Label className="text-sm text-gray-400 font-normal">Activity: {(InteractionType as any)[interaction.type]}</Label>
+                <Label className="text-sm text-gray-400 font-normal">
                     {moment(interaction.updated_at).format("MMMM Do YYYY, h:mm a")}
                 </Label>
             </div>
-            <p className="text-lg dark:text-white">{interaction.note}</p>
+            <p className="text-md dark:text-white font-normal">{interaction.note}</p>
             {index < arr.length - 1 && <Divider />}
         </div>)}
     </div>

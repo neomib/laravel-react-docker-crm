@@ -23,7 +23,7 @@ class InteractionController extends Controller
          $data = $request->validate([
             'contact_id' => 'required|exists:contacts,id',
             'type' => 'required',
-            'note' => 'nullable'
+            'note' => 'required|min:2'
         ]);
       
         $interaction = Interaction::create($data);
