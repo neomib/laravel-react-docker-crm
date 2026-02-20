@@ -26,8 +26,26 @@ MySQL Version: 5.7.x
 
 ## Using the Project
 
+Clone the repository
+
+```
+git clone https://github.com/neomib/laravel-react-docker-crm
+```
+
+CD into the cloned folder
+
+```
+cd laravel-react-docker-crm
+```
+
 Run the setup script 
 
 ```
 ./setup.sh
+```
+
+Open the url in the browser
+
+```
+http://localhost:8080/
 ```
