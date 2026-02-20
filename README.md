@@ -1,5 +1,5 @@
 # CRM Manager - React, Laravel, MySQL, Docker
-Just a basic boilerplate to start directly coding on React, Laravel and MySQL with Docker Compose.
+Just a basic CRM boilerplate to start directly coding on React, Laravel and MySQL with Docker Compose.
 
 ## Frontend
 - NodeJS lts
