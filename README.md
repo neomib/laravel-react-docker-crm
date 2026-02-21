@@ -39,6 +39,8 @@ cd laravel-react-docker-crm
 ```
 
 Run the setup script 
+- Make sure you have 'docker-compose' installed
+- Make sure to wait until all containers are up (including react) before opening the url in the browser
 
 ```
 ./setup.sh
@@ -49,3 +51,8 @@ Open the url in the browser
 ```
 http://localhost:8080/
 ```
+
+### To-Do:
+1. Implement table pagination
+2. Add Redis
+3. Add nice Dashboard features like number of contacts
