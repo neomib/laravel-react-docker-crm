@@ -1,7 +1,7 @@
 {
-  "name": "tailadmin-react",
+  "name": "laravel-react-docker-crm",
   "private": true,
-  "version": "2.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,6 +26,7 @@
     "clsx": "^2.1.1",
     "flatpickr": "^4.6.13",
     "lodash.orderby": "^4.6.0",
+    "lodash.uniq": "^4.5.0",
     "moment": "^2.30.1",
     "react": "^19.0.0",
     "react-apexcharts": "^1.7.0",
@@ -45,6 +46,7 @@
     "@eslint/js": "^9.19.0",
     "@tailwindcss/postcss": "^4.0.8",
     "@types/lodash.orderby": "^4.6.9",
+    "@types/lodash.uniq": "^4.5.9",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import ComponentCard from "../../components/common/ComponentCard";
 import PageMeta from "../../components/common/PageMeta";
 import ContactDetailsForm from "../../components/crm/ContactDetailsForm";
-import ContactsTable from "../../components/tables/BasicTables/ContactsTable";
+import ContactsTable from "../../components/tables/Tables/ContactsTable";
 import Button from "../../components/ui/button/Button";
 import { Modal } from "../../components/ui/modal";
 import { useModal } from "../../hooks/useModal";

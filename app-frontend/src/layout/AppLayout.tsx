@@ -5,12 +5,10 @@ import AppHeader from "./AppHeader";
 import Backdrop from "./Backdrop";
 
 const LayoutContent: React.FC = () => {
-  // const { isExpanded, isHovered, isMobileOpen } = useSidebar();
 
   return (
     <div className="min-h-screen xl:flex">
       <div>
-        {/* <AppSidebar /> */}
         <Backdrop />
       </div>
       <div

@@ -29,7 +29,10 @@ export const authConfig = () => {
       const originalRequest = error.config;
 
       if (error.response.status === 401) {
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
         store.dispatch(setAccessToken(null));
+        store.dispatch(setUser(null));
         location.replace("/signin");
         return Promise.reject(error);
       }
@@ -93,5 +96,7 @@ export const logout = () => {
   return axios.post(`${API_URL}/logout`).then(() => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    store.dispatch(setAccessToken(null));
+    store.dispatch(setUser(null));
   });
 };
