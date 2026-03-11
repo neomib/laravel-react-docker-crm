@@ -1,5 +1,10 @@
 # CRM Manager - React, Laravel, MySQL, Docker, NGINX
-Just a basic CRM boilerplate to start directly coding on React, Laravel and MySQL with Docker Compose. Responsive design.
+A basic CRM boilerplate to start directly coding on React, Laravel and MySQL with Docker Compose. 
+
+Features:
+- Responsive design
+- User authentication (signup, signin)
+- Contacts manager: contact details + activity log
 
 <img width="1814" height="925" alt="Screenshot from 2026-02-20 01-25-12" src="https://github.com/user-attachments/assets/fb452b84-30ab-4e00-9b4b-50bfb1b1673d" />
 <img width="1837" height="905" alt="Screenshot from 2026-02-20 01-23-30" src="https://github.com/user-attachments/assets/0e29b01f-17b9-4f38-9b8f-f1e1690f55ad" />
@@ -20,7 +25,7 @@ Just a basic CRM boilerplate to start directly coding on React, Laravel and MySQ
 - Laravel 12
 
 
-## MySQL and PhpMyAdmin
+## MySQL 
 
 MySQL Version: 5.7.x
 
